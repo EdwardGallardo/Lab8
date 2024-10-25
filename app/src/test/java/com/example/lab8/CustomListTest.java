@@ -67,6 +67,11 @@ public class CustomListTest {
         assertTrue(list.hasCity(city_4));
     }
 
+    /**
+     * creates a list with two cities initialized in it already
+     * then checks if one city is already contained in the list
+     * then it deletes the same city and checks if it is not contained in the list anymore
+     */
     @Test
     public void deleteCityTest() {
         // creating a CustomList with two cities in ArrayList argument in the constructor call
@@ -82,5 +87,34 @@ public class CustomListTest {
         list.deleteCity(city_1);
         // checking if city is not contained in the list anymore
         assertFalse(list.hasCity(city_1));
+    }
+
+    /** creates a list with two cities initialized in it already
+     * then checks how many cities are in it
+     * then adds a city and checks how many cities are in it
+     * then deletes 2 cities and checks how many cities are in it
+     */
+    @Test
+    public void countCitiesTest() {
+        // creating a CustomList with two cities in ArrayList argument in the constructor call
+        City city_1 = new City("Edmonton", "Alberta");
+        City city_2 = new City("Toronto", "Ontario");
+        ArrayList<City> cityArrayList = new ArrayList<City>();
+        cityArrayList.add(city_1);
+        cityArrayList.add(city_2);
+        list = new CustomList(null, cityArrayList);
+        // checking if countCities() returns 2
+        int listSize = list.countCities();
+        assertEquals(2, listSize);
+        // adding a new city
+        City city_3 = new City("Vancouver", "British Columbia"))
+        list.addCity(city_3);
+        // checking new count
+        assertEquals(3, list.countCities());
+        // deleting two cities
+        list.deleteCity(city_1);
+        list.deleteCity(city_3);
+        // checking new count
+        assertEquals(1, list.countCities());
     }
 }

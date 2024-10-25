@@ -107,7 +107,7 @@ public class CustomListTest {
         int listSize = list.countCities();
         assertEquals(2, listSize);
         // adding a new city
-        City city_3 = new City("Vancouver", "British Columbia"))
+        City city_3 = new City("Vancouver", "British Columbia");
         list.addCity(city_3);
         // checking new count
         assertEquals(3, list.countCities());

@@ -2,6 +2,7 @@ package com.example.lab8;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
@@ -64,5 +65,22 @@ public class CustomListTest {
         // contained in the list and testing if it is contained in the list already
         City city_4 = new City("Edmonton", "Alberta");
         assertTrue(list.hasCity(city_4));
+    }
+
+    @Test
+    public void deleteCityTest() {
+        // creating a CustomList with two cities in ArrayList argument in the constructor call
+        City city_1 = new City("Edmonton", "Alberta");
+        City city_2 = new City("Toronto", "Ontario");
+        ArrayList<City> cityArrayList = new ArrayList<City>();
+        cityArrayList.add(city_1);
+        cityArrayList.add(city_2);
+        list = new CustomList(null, cityArrayList);
+        // checking if city is contained in the list
+        assertTrue(list.hasCity(city_1));
+        // deleting the city
+        list.deleteCity(city_1);
+        // checking if city is not contained in the list anymore
+        assertFalse(list.hasCity(city_1));
     }
 }

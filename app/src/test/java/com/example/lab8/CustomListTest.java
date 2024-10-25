@@ -58,6 +58,7 @@ public class CustomListTest {
         assertTrue(list.hasCity(city_2));
         // adding another city and testing if it is contained in the list
         City city_3 = new City("Vancouver", "British Columbia");
+        list.addCity(city_3);
         assertTrue(list.hasCity(city_3));
         // creating another city object with identical fields as another city that is already
         // contained in the list and testing if it is contained in the list already
